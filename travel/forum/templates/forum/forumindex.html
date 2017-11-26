@@ -1,0 +1,9 @@
+<h3>Here are all my Forum:</h3>
+<ul>
+	{% for forum in all_forum %}
+	
+	<!-- Method 1 -->
+	<li><a href = "{% url 'forum:detail' forum.id %}">{{ forum.forum_title}}</a></li>
+
+	{% endfor %}
+</ul>
