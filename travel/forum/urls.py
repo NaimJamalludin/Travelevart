@@ -9,5 +9,5 @@ urlpatterns = [
 	url(r'^', views.ForumIndexView.as_view(), name = 'forumindex'),
 
 	# Method 2
-	url(r'^(?P<pk>[0-9]+)', views.DetailView.as_view(), name = 'detail'),
+	url(r'^(?P<pk>[0-9]+)', views.DetailForumView.as_view(), name = 'detail'),
 ]
