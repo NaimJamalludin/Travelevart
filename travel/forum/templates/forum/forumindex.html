@@ -10,7 +10,10 @@ Forums
 	
 	<!-- Method 1 -->
 	<li><a href = "{% url 'forum:detail' forum.id %}">{{ forum.forum_title }}</a></li>
-    <h4>{{ forum.content }}</h3>
+	{% for itemlist in forum.forum_items.all %}
+     <li>{{ itemlist }}</li>
+	{% endfor %}
+	   
 	{% endfor %}
 </ul>
 {% endblock %}
