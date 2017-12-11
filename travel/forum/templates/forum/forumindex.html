@@ -1,9 +1,19 @@
+{% extends 'forum/base.html' %}
+{% block title %}
+Forums
+{% endblock %}
+
+{% block content %}
 <h3>Here are all my Forum:</h3>
 <ul>
 	{% for forum in all_forum %}
 	
 	<!-- Method 1 -->
-	<li><a href = "{% url 'forum:detail' forum.id %}">{{ forum.forum_title}}</a></li>
-
+	<li><a href = "{% url 'forum:detail' forum.id %}">{{ forum.forum_title }}</a></li>
+	{% for itemlist in forum.forum_items.all %}
+     <li>{{ itemlist }}</li>
+	{% endfor %}
+	   
 	{% endfor %}
 </ul>
+{% endblock %}
