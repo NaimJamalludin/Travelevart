@@ -1,0 +1,8 @@
+.navbar{
+	border-radius: 0;
+	background-color: 'red'
+}
+
+.navbar-brand{
+	font-family: 'Lobster', cursive;
+}

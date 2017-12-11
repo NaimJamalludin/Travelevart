@@ -9,7 +9,7 @@ class ForumIndexView(generic.ListView):
 		return Forum.objects.all()
 
 
-class DetailView(generic.DetailView):
+class DetailForumView(generic.DetailView):
 	model = Forum
 	template_name = 'forum/detail.html'
 
