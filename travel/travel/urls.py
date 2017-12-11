@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('article.urls')),
     url(r'^forum/', include('forum.urls')),
+    url(r'^addarticle/', include('addarticle.urls')),
 ]
