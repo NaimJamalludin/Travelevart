@@ -102,3 +102,13 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# Database stuff
+*.sqlite3
+migrations/
+db.sqlite3
+
+# Other unwanted stuff
+.idea
+.DS_Store
+.DS_STORE
