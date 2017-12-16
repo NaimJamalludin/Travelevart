@@ -9,9 +9,9 @@ Forums
 	{% for forum in all_forum %}
 	
 	<!-- Method 1 -->
-	<li><a href = "{% url 'forum:detail' forum.id %}">{{ forum.forum_title }}</a></li>
+	<li>{{ forum.forum_title }}</li>
 	{% for itemlist in forum.forum_items.all %}
-     <li>{{ itemlist }}</li>
+     <li><a href = "{% url 'forum:detail' itemlist.id %}">{{ itemlist }}</a></li>
 	{% endfor %}
 	   
 	{% endfor %}

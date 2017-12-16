@@ -1,9 +1,18 @@
 {% extends 'forum/base.html' %}
 
 {% block title %}
-Forum detail
+Comment detail
 {% endblock %}
 
 {% block content %}
-<h3> {{ forum.content }} </h3>
+   		
+         <p>Total Number of Comment(s) : {{ listforum.comments.count }}</p>
+         <a href="{% url 'forum:add_comment' %}">Leave A Comment</a>
+   		{% for comment in listforum.comments.all %}
+   			<p>{{ comment.created }}</p>
+   			<h4>{{ comment.user }}</h4>
+   			<p>{{ comment.body }}</p>
+            <hr>
+        {% endfor %}
 {% endblock %}
+

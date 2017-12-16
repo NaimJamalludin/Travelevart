@@ -10,4 +10,7 @@ urlpatterns = [
 
 	# Method 2
 	url(r'^(?P<pk>[0-9]+)', views.DetailForumView.as_view(), name = 'detail'),
+
+
+	url(r'^/comment/$', views.add_comment, name='add_comment'),
 ]
