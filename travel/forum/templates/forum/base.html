@@ -3,19 +3,19 @@
   <head>
     <meta charset="utf-8">
 
-    <title>{% block title%} My Site {% endblock %}</title>
+    <title>{% block title%} Travelevart {% endblock %}</title>
     {% load staticfiles %}
-      <!--Bootstrap-->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <!--Font-->
-      <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet'>
-      <!--Our CSS-->
-      <link rel = "stylesheet" type = "text/css" href="{% static 'forum/style.css' %}"> 
 
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--Font-->
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet'>
+    <!--Our CSS-->
+    <link rel = "stylesheet" type = "text/css" href="{% static 'article/style.css' %}"> 
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
   </head>
+
   <body>
 
     <!--Navigation Bar-->
@@ -33,24 +33,87 @@
           </button>
           
           <!--Logo links to main page-->
-          <a class="navbar-brand" href="{% url 'forum:forumindex' %}">Let's Travel</a>
+          <a class="navbar-brand" href="{% url 'article:articleindex' %}">Travelevart</a>
         </div>
         
 
         <!--Other navigation bar items-->
         <div class="collapse navbar-collapse" id="topNavBar">
 
+          
+          <!--Logged in-->
+          {% if user.is_authenticated %}
+
           <!--Left side-->
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="{% url 'article:articleindex' %}">
+                <span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp;
+                Article
+              </a>
+            </li>
+            <li class="active">
+              <a href="{% url 'forum:forumindex' %}">
+                <span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp;
+                Forum
+              </a>
+            </li>
+          </ul>
 
           <!--Right side-->
           <ul class="nav navbar-nav navbar-right">
             <li class="">
               <a href="">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;
+                {{ request.user.username }}
+              </a>
+            </li>   
+            <li class="">
+              <a href="/addarticle/logout">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;
                 Logout
               </a>
-            </li>       
+            </li>            
+          </ul>
+
+          {% else %}
+
+          <!--Not Logged in-->
+
+          <!--Left side-->
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="{% url 'article:articleindex' %}">
+                <span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp;
+                Article
+              </a>
+            </li>
+            <li class="active">
+              <a href="{% url 'forum:forumindex' %}">
+                <span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp;
+                Forum
+              </a>
+            </li>
+          </ul>
+
+          <!--Right side-->
+          <ul class="nav navbar-nav navbar-right">
+            <li class="">
+              <a href="/addarticle/login">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;
+                Login
+              </a>
+            </li>
+            <li class="">
+              <a href="/addarticle/register">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;
+                Register
+              </a>
+            </li>             
           </ul>   
+
+          {% endif %}      
+
         </div>
       </div>  
     </nav>
@@ -58,5 +121,16 @@
     {% block content %}
 
     {% endblock %}
+
+    <div class="container">
+
+    <hr>
+
+    <footer>
+     
+    </footer>
+
+    </div>
+
   </body>
 </html>

@@ -7,6 +7,12 @@ from django.contrib.auth.models import User
 # Create your models here.
 class ListForum(models.Model):
 	itemlist = models.CharField(max_length = 1500)
+	slug = models.SlugField(max_length=250)
+
+	def get_absolute_url(self):
+		return reverse('forum:detail',args=[self.slug])
+
+
 	def __str__(self):
 		return self.itemlist
 

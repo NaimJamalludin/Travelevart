@@ -7,7 +7,7 @@ Comment detail
 {% block content %}
    		
          <p>Total Number of Comment(s) : {{ listforum.comments.count }}</p>
-         <a href="{% url 'forum:add_comment' %}">Leave A Comment</a>
+         <a href="{% url 'forum:add_comment' slug=listforum.slug %}">Leave A Comment</a>
    		{% for comment in listforum.comments.all %}
    			<p>{{ comment.created }}</p>
    			<h4>{{ comment.user }}</h4>

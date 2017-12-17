@@ -19,15 +19,15 @@ class DetailForumView(generic.DetailView):
 
 
 #addComment
-def add_comment(request):
-	post = get_object_or_404(ListForum)
-	if request.method == 'ListForum':
-		form = CommentForm(request.ListForum)
+def add_comment(request, slug):
+	post = get_object_or_404(ListForum, slug=slug)
+	if request.method == 'POST':
+		form = CommentForm(request.POST)
 		if form.is_valid():
 			comment = form.save(commit=False)
 			comment.post = post
 			comment.save()
-			return redirect('forum:detail')
+			return redirect('forum:detail', slug=post.slug)
 	else:
 		form = CommentForm()
 	template = 'forum/add_comment.html'
