@@ -40,10 +40,6 @@
         <!--Other navigation bar items-->
         <div class="collapse navbar-collapse" id="topNavBar">
 
-          
-          <!--Logged in-->
-          {% if user.is_authenticated %}
-
           <!--Left side-->
           <ul class="nav navbar-nav">
             <li class="active">
@@ -59,6 +55,9 @@
               </a>
             </li>
           </ul>
+          
+          <!--Logged in-->
+          {% if user.is_authenticated %}
 
           <!--Right side-->
           <ul class="nav navbar-nav navbar-right">
@@ -85,23 +84,6 @@
           {% else %}
 
           <!--Not Logged in-->
-
-          <!--Left side-->
-          <ul class="nav navbar-nav">
-            <li class="active">
-              <a href="{% url 'article:articleindex' %}">
-                <span class="glyphicon glyphicon-plane" aria-hidden="true"></span>&nbsp;
-                Article
-              </a>
-            </li>
-            <li>
-              <a href="{% url 'forum:forumindex' %}">
-                <span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>&nbsp;
-                Forum
-              </a>
-            </li>
-          </ul>
-
           <!--Right side-->
           <ul class="nav navbar-nav navbar-right">
             <li class="">
