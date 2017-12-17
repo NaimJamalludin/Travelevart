@@ -1,0 +1,25 @@
+{% extends 'addarticle/base.html' %}
+
+{% block title %}
+Add New Article
+{% endblock %}
+
+{% block content %}
+<div class = 'container'>
+	<h2>Add New Article</h2>
+	<form method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Submit</button>
+	</form>
+
+	<h3>Existing Article</h3>
+	<ul>
+		{% for article in articles %}
+			<li><p>{{ article.article_title }} - {{ article.description }}</p></li>
+		{% endfor %}
+	</ul>
+
+
+</div>
+{% endblock %}

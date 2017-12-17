@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .forms import ArticleForm
 from article.models import Article
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import UserForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -15,18 +15,20 @@ class AddArticleFormView(LoginRequiredMixin, TemplateView):
 	def get(self, request):
 		form = ArticleForm()
 		articles = Article.objects.all()
-		args = {'form': form, 'articless': articles}
+		args = {'form': form, 'articles': articles}
 		return render(request, self.template_name, args)
 
 	def post(self, request):
 			form = ArticleForm(request.POST)
 			if form.is_valid():
-				form.save()
-				artist = form.cleaned_data['artist']
-				album_title = form.cleaned_data['album_title']
-				album_logo = form.cleaned_data['album_logo']
-				args = {'form': form, 'artist': artist, 'album_title': album_title, 'album_logo': album_logo}
-				return HttpResponseRedirect(reverse('music:musicindex'))
+				article = form.save(commit = False)
+				article_title = form.cleaned_data['article_title']
+				description = form.cleaned_data['description']
+				author = form.cleaned_data['author']
+				content = form.cleaned_data['content']
+				date_published = form.cleaned_data['date_published']
+				args = {'form': form, 'article_title': article_title, 'description': description, 'author': author, 'content': content, 'date_published': date_published}
+				return HttpResponseRedirect(reverse('article:articleindex'))
 
 class UserFormView(TemplateView):
 	template_name = 'addarticle/registration_form.html'
@@ -44,15 +46,14 @@ class UserFormView(TemplateView):
 
 			username = form.cleaned_data['username']
 			password = form.cleaned_data['password']
-
 			user.set_password(password)
 			user.save()
 
-			user = authentication(usrename=username, password=password)
+			user = authenticate(username=username, password=password)
 
 			if user is not None:
 				if user.is_active:
 					login(request, user)
-					return request('music:musicindex')
+					return redirect('article:articleindex')
 
 		return render(request, self.template_name, {'form': form})
