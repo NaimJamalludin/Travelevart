@@ -4,16 +4,26 @@ Forums
 {% endblock %}
 
 {% block content %}
-<h3>Here are all my Forum:</h3>
+<div class="jumbotron">
+	<div>
+		<h1>Here are all my Forums</h1>
+	</div>
+</div>
+
 <ul>
 	{% for forum in all_forum %}
 	
 	<!-- Method 1 -->
-	<li><a href = "{% url 'forum:detail' forum.id %}">{{ forum.forum_title }}</a></li>
-	{% for itemlist in forum.forum_items.all %}
-     <li>{{ itemlist }}</li>
-	{% endfor %}
-	   
+<div >
+	<div class="column">
+		<li style="color:#A9A9A9;font-size:40px;font-family:serif;list-style: none;background:blue">{{ forum.forum_title }}</li>
+		<div style="background:#87CEEB" >
+			{% for itemlist in forum.forum_items.all %}
+             <li style="list-style: none;font-size:20px;color:black"><a href = "{% url 'forum:detail' slug=itemlist.slug %}">{{ itemlist }}</a></li>
+	        {% endfor %}
+		</div>		
+	</div>
+</div>	   
 	{% endfor %}
 </ul>
 {% endblock %}
