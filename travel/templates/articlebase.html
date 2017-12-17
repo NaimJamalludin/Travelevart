@@ -10,7 +10,7 @@
     <!--Font-->
     <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet'>
     <!--Our CSS-->
-    <link rel = "stylesheet" type = "text/css" href="{% static 'article/style.css' %}"> 
+    <link rel = "stylesheet" type = "text/css" href="{% static 'style.css' %}"> 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
@@ -90,13 +90,13 @@
           <ul class="nav navbar-nav">
             <li class="active">
               <a href="{% url 'article:articleindex' %}">
-                <span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp;
+                <span class="glyphicon glyphicon-plane" aria-hidden="true"></span>&nbsp;
                 Article
               </a>
             </li>
             <li>
               <a href="{% url 'forum:forumindex' %}">
-                <span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp;
+                <span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>&nbsp;
                 Forum
               </a>
             </li>
@@ -133,7 +133,7 @@
     <hr>
 
     <footer>
-      <p>&copy; {% now "Y" %} Company, Inc.</p>
+      <p>&copy; {% now "Y" %} WOC 7012 - Web Framework Group Project.</p>
     </footer>
 
     </div>

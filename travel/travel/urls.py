@@ -19,10 +19,18 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
+    # Admin site url
     url(r'^admin/', admin.site.urls),
+
+    # Article site url - Default
     url(r'^', include('article.urls')),
-    url(r'^forum/', include('forum.urls')),
+
+    # Add Article site url
     url(r'^addarticle/', include('addarticle.urls')),
+
+    # Forum site url
+    url(r'^forum/', include('forum.urls')),
+
 ]
 
 #if settings.DEBUG:
