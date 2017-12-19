@@ -1,6 +1,27 @@
-<h1>{{ article.article_title }}</h1>
-<h1>{{ article.description }}</h1>
-<h1>{{ article.author }}</h1>
-<h1>{{ article.content }}</h1>
-<h1>{{ article.date_published }}</h1>
-<h1>{{ article.date_published }}</h1>
+{% extends 'articlebase.html' %}
+
+{% block title %}
+Article
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    
+    <div class="blog-header">
+        <h1 class="blog-title">{{ article.article_title }}</h1>
+        <p class="lead blog-description">{{ article.description }}</p>
+        <p class="blog-post-meta">{{ article.author }}</p>
+        <p class="blog-post-meta">{{ article.date_published }}</p>
+    </div>
+    
+    <div class="row">    
+        <div class="col-sm-8 blog-main">    
+            <div class="blog-post">
+                <h2 class="blog-post-title">{{ article.article_title }}</h2>
+                <p>{{ article.content }}</p>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}

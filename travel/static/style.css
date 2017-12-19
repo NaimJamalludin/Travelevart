@@ -1,9 +1,25 @@
-
 .navbar{
   border-radius: 0;
   margin-bottom: 0px;
 }
+/*
 
 .navbar-brand{
 	font-family: 'Lobster', cursive;
+}*/
+
+@media screen and (min-width:768px){
+  .navbar-brand-centered {
+      position: absolute;
+      left: 50%;
+      display: block;
+      width: 160px;
+      text-align: center;
+      background-color: #eee;
+      font-family: 'Lobster', cursive;
+  }
+  .navbar>.container .navbar-brand-centered, 
+  .navbar>.container-fluid .navbar-brand-centered {
+      margin-left: -80px;
+  }
 }

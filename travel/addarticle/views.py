@@ -27,8 +27,9 @@ class AddArticleFormView(LoginRequiredMixin, TemplateView):
 				author = form.cleaned_data['author']
 				content = form.cleaned_data['content']
 				date_published = form.cleaned_data['date_published']
+				article.save()
 				args = {'form': form, 'article_title': article_title, 'description': description, 'author': author, 'content': content, 'date_published': date_published}
-				return HttpResponseRedirect(reverse('article:articleindex'))
+				return redirect('article:articleindex')
 
 class UserFormView(TemplateView):
 	template_name = 'addarticle/registration_form.html'
