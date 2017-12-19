@@ -24,5 +24,6 @@ class AddForumFormView(LoginRequiredMixin, TemplateView):
 				forum_title = form.cleaned_data['forum_title']
 				forum_items = form.cleaned_data['forum_items']
 				forum.save()
+				form.save_m2m()
 				args = {'form': form, 'forum_title': forum_title, 'forum_items': forum_items}
 				return HttpResponseRedirect(reverse('forum:forumindex'))
