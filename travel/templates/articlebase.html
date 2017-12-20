@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>{% block title%} Travelevart {% endblock %}</title>
     {% load staticfiles %}
@@ -11,16 +12,18 @@
     <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet'>
     <!--Our CSS-->
     <link rel = "stylesheet" type = "text/css" href="{% static 'style.css' %}"> 
-    <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}"/>
+    <link rel =" shortcut icon" href = "{% static 'favicon/favicon.ico' %}"/>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+    <script src="{% static 'site.js' %}"></script>
   </head>
 
   <body>
-
+      <div class="navbar-wrapper">
+          <div class="container">
     <!--Navigation Bar-->
-    <nav class="navbar navbar-default" role="navigation"> 
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation"> 
       <div class="container">
 
         <!-- Header-->
@@ -101,6 +104,9 @@
         </div>
       </div>  
     </nav>
+
+  </div>
+</div>
 
     {% block content %}
 
