@@ -28,6 +28,8 @@ urlpatterns = [
     # Add Article site url
     url(r'^addarticle/', include('addarticle.urls')),
 
+    url(r'^addforum/', include('addforum.urls')),
+
     # Forum site url
     url(r'^forum/', include('forum.urls')),
 

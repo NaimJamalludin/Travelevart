@@ -1,7 +1,7 @@
 from django.views import generic
 from .models import Forum
 from .models import Comment
-from .forms import CommentForm
+from .forms import CommentForm,ForumForm
 from .models import ListForum
 from django.shortcuts import render, get_object_or_404, redirect
 

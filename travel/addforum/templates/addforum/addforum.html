@@ -1,0 +1,10 @@
+{% extends 'forumbase.html' %}
+
+{% block content %}
+	<h1>Add New Forum</h1>
+	<form method='POST'>{% csrf_token %}
+	{{ form.as_p }}
+	<button type="Submit">Submit</button>
+	</form>
+
+{% endblock %}

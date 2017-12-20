@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'article.apps.ArticleConfig',
     'addarticle.apps.AddarticleConfig',
+    'addforum.apps.AddforumConfig',
     'forum.apps.ForumConfig',
     'django.contrib.admin',
     'django.contrib.auth',

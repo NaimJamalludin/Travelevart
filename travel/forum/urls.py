@@ -13,4 +13,6 @@ urlpatterns = [
 
 
 	url(r'^(?P<slug>[-\w]+)/comment/$', views.add_comment, name='add_comment'),
+
+
 ]
