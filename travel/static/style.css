@@ -150,3 +150,10 @@
     margin-top: 120px;
   }
 }
+
+.btn-primary {
+  color: white;
+  background-color: transparent;
+  border-color: white;
+  border-radius: 0px;
+}
