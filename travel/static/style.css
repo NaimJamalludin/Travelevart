@@ -1,3 +1,7 @@
+body {
+  font-family: 'Armata', sans-serif;
+}
+
 .navbar{
   border-radius: 0;
   margin-bottom: 0px;
@@ -217,3 +221,7 @@ a.carousel-control.right { right: 0; background: none; border: 0;}
 .carousel:hover .control-box { opacity: 1; }
 .carousel:hover a.carousel-control.left { left: 15px; }
 .carousel:hover a.carousel-control.right { right: 15px; }  
+
+.navbar {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
