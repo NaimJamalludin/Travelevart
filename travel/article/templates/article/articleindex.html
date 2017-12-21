@@ -37,7 +37,7 @@ Travelevart
 					<div class="carousel-caption">
 						<h1>Need idea?</h1>
 						<p>Planning for your next travel? Let us help you</p>
-						<p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+						<p><a class="btn btn-lg btn-primary" href="#article-section" role="button">Learn more</a></p>
 					</div>
 				</div>
 			</div>
@@ -63,17 +63,17 @@ Travelevart
 	</div><!-- /.carousel -->
 
 	<div class="container marketing">
-
-	<div id="#" class="row">
-	{% for article in all_article %}
-		<!-- Three columns of text below the carousel -->
-		<div class="col-lg-4">
-			<h2>{{ article.article_title }}</h2>
-			<p>{{ article.description }}</p>
-			<p><a class="btn btn-default" href="{% url 'article:detail' article.id %}" role="button">Read More &raquo;</a></p>
-		</div><!-- /.col-lg-4 -->
-	{% endfor %}
-	</div><!-- /.row -->
+		<div id="article-section" class="row">
+		{% for article in all_article %}
+			<!-- Three columns of text below the carousel -->
+			<div class="col-lg-4">
+				<h2>{{ article.article_title }}</h2>
+				<p>{{ article.description }}</p>
+				<p><a class="btn btn-default" href="{% url 'article:detail' article.id %}" role="button">Read More &raquo;</a></p>
+			</div><!-- /.col-lg-4 -->
+		{% endfor %}
+		</div><!-- /.row -->
+	</div>>
 			
 			
 				  <!-- START THE FEATURETTES -->
