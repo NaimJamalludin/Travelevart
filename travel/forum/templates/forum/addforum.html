@@ -1,10 +1,13 @@
 {% extends 'forumbase.html' %}
 
 {% block content %}
-	<h1>Add New Forum</h1>
+<div style="margin-top:500px">
+	<h1 style="margin-top: 300px">Add New Forum</h1>
 	<form method='POST'>{% csrf_token %}
 	{{ form.as_p }}
 	<button type="Submit">Submit</button>
 	</form>
+</div>
+	
 
 {% endblock %}

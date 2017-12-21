@@ -5,14 +5,26 @@ Comment detail
 {% endblock %}
 
 {% block content %}
-   		
-         <p>Total Number of Comment(s) : {{ listforum.comments.count }}</p>
-         <a href="{% url 'forum:add_comment' slug=listforum.slug %}">Leave A Comment</a>
+<div style="margin-top: 100px;margin-left: 120px">
+	<p>Total Number of Comment(s) : {{ listforum.comments.count }}</p>
+	{% if user.is_authenticated %}
+	    <a href="{% url 'forum:add_comment' slug=listforum.slug %}">Leave A Comment</a>
    		{% for comment in listforum.comments.all %}
    			<p>{{ comment.created }}</p>
    			<h4>{{ comment.user }}</h4>
    			<p>{{ comment.body }}</p>
             <hr>
+        {% endfor %} 
+   		
+    {% else %}
+         {% for comment in listforum.comments.all %}
+   			<p>{{ comment.created }}</p>
+   			<h4>{{ comment.user }}</h4>
+   			<p>{{ comment.body }}</p>
+            <hr>
         {% endfor %}
+    {% endif %}
+</div>
+   		        
 {% endblock %}
 

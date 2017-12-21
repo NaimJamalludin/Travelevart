@@ -10,4 +10,5 @@ urlpatterns = [
 	url(r'^register/$', views.UserFormView.as_view(), name = 'register'),
 	url(r'^login/$', login, {'template_name': 'addarticle/login.html'}, name = 'login'),
 	url(r'^logout/$', logout, name='logout'),
+	url(r'^allusers/$', views.MemberView.as_view(), name = 'allusers'),
 ] 

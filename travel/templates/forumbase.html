@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>{% block title%} Travelevart {% endblock %}</title>
     {% load staticfiles %}
@@ -11,73 +12,77 @@
     <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet'>
     <!--Our CSS-->
     <link rel = "stylesheet" type = "text/css" href="{% static 'style.css' %}"> 
+    <link rel =" shortcut icon" href = "{% static 'favicon/favicon.ico' %}"/>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+    <script src="{% static 'site.js' %}"></script>
   </head>
 
   <body>
-
+      <div class="navbar-wrapper">
+          <div class="container">
     <!--Navigation Bar-->
-    <nav class="navbar navbar-inverse "> 
-      <div class="container-fluid">
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation"> 
+      <div class="container">
 
         <!-- Header-->
         <div class="navbar-header">
 
           <!--Collapse Button-->
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-brand-centered">
+            <span class="sr-only">Toggle navigation</span>            
             <span class="icon-bar"></span>  
             <span class="icon-bar"></span>  
             <span class="icon-bar"></span>  
           </button>
           
           <!--Logo links to main page-->
-          <a class="navbar-brand" href="{% url 'article:articleindex' %}">Travelevart</a>
+          <a class="navbar-brand navbar-brand-centered" href="{% url 'article:articleindex' %}">Travelevart</a>
         </div>
         
 
         <!--Other navigation bar items-->
-        <div class="collapse navbar-collapse" id="topNavBar">
-
-          
-          <!--Logged in-->
-          {% if user.is_authenticated %}
+        <div class="collapse navbar-collapse" id="navbar-brand-centered">
 
           <!--Left side-->
           <ul class="nav navbar-nav">
-            <li>
+            <li class="active">
               <a href="{% url 'article:articleindex' %}">
-                <span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp;
                 Article
               </a>
             </li>
-            <li class="active">
+            <li>
               <a href="{% url 'forum:forumindex' %}">
-                <span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp;
                 Forum
               </a>
             </li>
           </ul>
+          
+          <!--Logged in-->
+          {% if user.is_authenticated %}
 
           <!--Right side-->
+
           <ul class="nav navbar-nav navbar-right">
             <li class="">
-              <a href="{% url 'addforum:addforum' %}">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;
-                Add New Forum
+              <a href="">
+                {{ request.user.username }}
               </a>
             </li>
             <li class="">
-              <a href="">
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;
-                {{ request.user.username }}
+              <a href="/addarticle/allusers">
+                Members
               </a>
-            </li>   
+            </li>  
+            <li class="">
+              <a href="{% url 'addforum:addforum' %}">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true" data-toggle="tooltip" title="Add New Article"></span>
+              </a>
+            </li>
             <li class="">
               <a href="/addarticle/logout">
-                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;
-                Logout
+                <span class="fa fa-sign-out fa-1x" aria-hidden="true" data-toggle="tooltip" title="Sign Out"></span>
               </a>
             </li>            
           </ul>
@@ -85,34 +90,15 @@
           {% else %}
 
           <!--Not Logged in-->
-
-          <!--Left side-->
-          <ul class="nav navbar-nav">
-            <li>
-              <a href="{% url 'article:articleindex' %}">
-                <span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp;
-                Article
-              </a>
-            </li>
-            <li class="active">
-              <a href="{% url 'forum:forumindex' %}">
-                <span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp;
-                Forum
-              </a>
-            </li>
-          </ul>
-
           <!--Right side-->
           <ul class="nav navbar-nav navbar-right">
             <li class="">
               <a href="/addarticle/login">
-                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;
                 Login
               </a>
             </li>
             <li class="">
               <a href="/addarticle/register">
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;
                 Register
               </a>
             </li>             
@@ -124,6 +110,9 @@
       </div>  
     </nav>
 
+  </div>
+</div>
+
     {% block content %}
 
     {% endblock %}
@@ -133,10 +122,12 @@
     <hr>
 
     <footer>
-     
+      <p>&copy; {% now "Y" %} WOC 7012 - Web Framework Group Project.</p>
     </footer>
 
     </div>
+
+    <script src="https://use.fontawesome.com/5067f5ef39.js"></script>
 
   </body>
 </html>
