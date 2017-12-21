@@ -1,4 +1,5 @@
 from django.views.generic import TemplateView
+from django.views import generic
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .forms import ArticleForm
@@ -7,6 +8,8 @@ from django.shortcuts import render, redirect
 from .forms import UserForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 
 class AddArticleFormView(LoginRequiredMixin, TemplateView):
 	login_url = "login/"
@@ -33,6 +36,14 @@ class AddArticleFormView(LoginRequiredMixin, TemplateView):
 				args = {'form': form, 'article_title': article_title, 'description': description, 'author': author, 'content': content, 
 						'date_published': date_published, 'thumbnail': thumbnail, 'header': header}
 				return redirect('article:articleindex')
+
+class MemberView(generic.ListView):
+	template_name = 'addarticle/memberlist.html'
+	context_object_name = 'all_user'
+
+	def get_queryset(self):
+		return User.objects.all()
+		
 
 class UserFormView(TemplateView):
 	template_name = 'addarticle/registration_form.html'

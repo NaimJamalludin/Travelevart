@@ -1,0 +1,24 @@
+{% extends 'forumbase.html' %}
+{% block title %}
+Forums
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+	<div>
+		<h1>Here are all the members</h1>
+	</div>
+</div>
+
+<ul>
+	{% for users in all_user %}
+	
+	<!-- Method 1 -->
+<div >
+	<div class="column">
+		<li style="font-size:40px;font-family:serif;list-style: none;">{{ users.username }}-----------{{ users.email }}</li>		
+	</div>
+</div>	   
+	{% endfor %}
+</ul>
+{% endblock %}
