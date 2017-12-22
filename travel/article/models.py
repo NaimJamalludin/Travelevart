@@ -10,8 +10,8 @@ class Tags(models.Model):
 class Article(models.Model):
     article_title = models.CharField(max_length = 250)
     description = models.TextField()
-    author = models.CharField(max_length = 250)
     content = models.TextField()
+    author = models.CharField(max_length = 250)
     date_published = models.DateTimeField(auto_now=True)
     # thumbnail = models.ImageField(upload_to = 'media/' , default = 'media/travel1.jpg')
     # header = models.ImageField(upload_to = 'media/', default = 'media/travel1.jpg')

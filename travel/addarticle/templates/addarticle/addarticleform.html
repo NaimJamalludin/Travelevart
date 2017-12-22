@@ -10,7 +10,10 @@ Add New Article
 	<form method="post">
 		{% csrf_token %}
 		{{ form.as_p }}
-		<button type="submit">Submit</button>
+		{% comment %} <p>{{ form.article_title.label_tag }} : {{ form.article_title }}</p>
+		<p>{{ form.description.label_tag }} : {{ form.description }}</p>
+		<p>{{ form.content.label_tag }} : {{ form.content }}</p> {% endcomment %}
+		<button type="submit">Submit</button> 
 	</form>
 
 	<h3>Existing Article</h3>

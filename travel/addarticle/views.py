@@ -27,13 +27,13 @@ class AddArticleFormView(LoginRequiredMixin, TemplateView):
 				article = form.save(commit = False)
 				article_title = form.cleaned_data['article_title']
 				description = form.cleaned_data['description']
-				author = form.cleaned_data['author']
 				content = form.cleaned_data['content']
+				article.author = request.user.username
 				# date_published = form.cleaned_data['date_published']
 				# thumbnail = form.cleaned_data['thumbnail']
 				# header = form.cleaned_data['header']
 				article.save()
-				args = {'form': form, 'article_title': article_title, 'description': description, 'author': author, 'content': content }
+				args = {'form': form, 'article_title': article_title, 'description': description, 'content': content }
 				return redirect('article:articleindex')
 
 class MemberView(generic.ListView):

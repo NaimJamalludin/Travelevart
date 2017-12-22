@@ -13,7 +13,8 @@ class ArticleForm(ModelForm):
 
 	class Meta:
 		model = Article
-		fields = ('__all__')
+		# fields = ('__all__')
+		fields = ['article_title', 'content', 'description']
 
 class UserForm(forms.ModelForm):
 	password = forms.CharField(widget = forms.PasswordInput)
