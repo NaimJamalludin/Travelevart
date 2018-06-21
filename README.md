@@ -1,28 +1,34 @@
-Travelevart
+# Travelevart
 
-About
-This is a group project for WOC7012 - Web Based Framework Development
+Traveling blog website - Group Project for WOC7012 - Web Based Framework Development using Django Framework
 
-Prerequisites
-Python 3.6.4
-pip
-virtualenv
+## Getting Started
 
-Setup
-Create a virtual environment in which to install Python pip packages. Virtual environment activation with virtualenv
+Download or clone the project.
 
-virtualenv env
-env/scripts/activate
+## Prerequisites
 
-Install development dependencies
+What things you need to install the software and how to install them
+
+```
 pip install -r requirements.txt
+```
 
-Setup database tables
+Setting up database
+
+```
 python manage.py makemigrations
 python manage.py migrate
 
-Run the web application locally
+```
+
+Running the application
+
+```
 python manage.py runserver
 
-License
-MIT
+```
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
