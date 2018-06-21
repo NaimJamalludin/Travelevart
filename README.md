@@ -1,6 +1,6 @@
 # Travelevart
 
-Traveling blog website - Group Project for WOC7012 - Web Based Framework Development using Django Framework
+Travelling blog website - Group Project for WOC7012 - Web Based Framework Development using Django Framework
 
 ## Getting Started
 
